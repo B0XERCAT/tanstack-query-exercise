@@ -1,8 +1,6 @@
-export const postComment = async (comment: {
-    postId: number;
-    name: string;
-    body: string;
-  }) => {
+import { Comment } from "@/lib/types";
+
+export const postComment = async (comment: Comment) => {
     const response = await fetch(
       "https://jsonplaceholder.typicode.com/comments",
       {
