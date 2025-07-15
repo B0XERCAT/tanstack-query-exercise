@@ -10,8 +10,8 @@ export const postQueries = {
       queryOptions({
         queryKey: postQueries.lists(),
         queryFn: fetchPosts,
-        staleTime: 1000 * 3,
-        gcTime: 1000 * 10,
+        staleTime: 1000 * 10,
+        gcTime: 1000 * 20,
       }),
   
     details: () => [...postQueries.all(), 'detail'] as const,
@@ -20,7 +20,7 @@ export const postQueries = {
       queryOptions({
         queryKey: [...postQueries.details(), id] as const,
         queryFn: () => fetchPostById(id),
-        staleTime: 1000 * 3,
-        gcTime: 1000 * 10,
+        staleTime: 1000 * 10,
+        gcTime: 1000 * 20,
       }),
   };
