@@ -10,9 +10,12 @@ export async function GET() {
 export async function POST(req: NextRequest) {
   const data = await req.json();
   const postList = getPostList();
+  const newId = postList.length ? Math.max(...postList.map((p) => p.id)) + 1 : 1;
   const newPost: Post = {
     ...data,
-    id: postList.length ? Math.max(...postList.map((p) => p.id)) + 1 : 1,
+    id: newId,
+    title: `New Post ${newId}`,
+    body: `This is a new post ${newId}.`
   };
   postList.unshift(newPost);
   return NextResponse.json(newPost, { status: 201 });
