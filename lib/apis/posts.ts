@@ -1,5 +1,5 @@
 export const fetchPosts = async () => {
-    const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+    const response = await fetch('/api/posts');
     if (!response.ok) {
       throw new Error('failed to fetch posts');
     }
@@ -7,7 +7,7 @@ export const fetchPosts = async () => {
   }
   
   export const fetchPostById = async (id: number) => {
-    const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
+    const response = await fetch(`/api/posts/${id}`);
     if (!response.ok) {
       throw new Error('failed to fetch post by id');
     }
@@ -15,7 +15,7 @@ export const fetchPosts = async () => {
   }
 
   export const createPost = async (newPost: { title: string; body: string; userId: number }) => {
-    const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
+    const response = await fetch('/api/posts', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
