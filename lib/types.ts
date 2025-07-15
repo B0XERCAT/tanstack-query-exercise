@@ -4,9 +4,3 @@ export interface Post {
     title: string;
     body: string;
 }
-
-export interface Comment {
-    postId: number;
-    name: string;
-    body: string;
-}

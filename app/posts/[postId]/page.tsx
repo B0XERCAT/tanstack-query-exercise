@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { use } from "react";
-import { postQueries } from "@/lib/queries/post";
+import { postQueries } from "@/lib/queries/posts";
 
 interface PostDetailProps {
   params: Promise<{ postId: string }>;

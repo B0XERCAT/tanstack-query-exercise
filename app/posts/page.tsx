@@ -5,7 +5,7 @@ import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { createPost } from "@/lib/apis/posts";
 import { Button } from "@/components/ui/button";
-import { postQueries } from "@/lib/queries/post";
+import { postQueries } from "@/lib/queries/posts";
 import { Post } from "@/lib/types";
 
 export default function PostList() {
@@ -16,12 +16,13 @@ export default function PostList() {
   const mutation = useMutation({
     mutationFn: createPost,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["posts"] });
+      queryClient.invalidateQueries({ queryKey: postQueries.lists() });
       alert("Post created successfully");
     },
   });
 
   const handleAddPost = () => {
+    // 아무렇게나 보내는데 어차피 api에서 새로 만들어요
     const newPost = {
       title: "New Post",
       body: "This is a new post.",
